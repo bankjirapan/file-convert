@@ -1,3 +1,3 @@
-import createApp from './app/config/express'
+import createApp from './config/express'
 createApp.setup()
 
