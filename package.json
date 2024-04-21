@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node main.js",
+    "dev": "concurrently \"npx tailwindcss -i ./public/css/pre.css -o ./public/css/main.css --watch\" \"nodemon --exec babel-node main.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +14,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "concurrently": "^8.2.2",
     "express": "^4.19.2",
     "nodemon": "^3.1.0",
     "pug": "^3.0.2",

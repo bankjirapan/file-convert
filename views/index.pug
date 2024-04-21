@@ -1,4 +1,20 @@
 html 
     title Simple File convert 
+    link(rel="stylesheet", href="https://unpkg.com/file-upload-with-preview/dist/style.css")
+    link(rel="stylesheet", href="/css/main.css")
+    script(src="https://unpkg.com/file-upload-with-preview/dist/file-upload-with-preview.iife.js")
     body 
-        h1 Hi
+        header.mt-10.inset-x-0.top-0.z-30.mx-auto.w-full.max-w-screen-md.border.border-gray-100.py-3.shadow.backdrop-blur-lg(class='bg-white/80 md:top-6 md:rounded-2xl lg:max-w-screen-lg')
+            .px-4
+                .flex.items-center.justify-between
+                    .flex.shrink-0
+                        a.flex.items-center(aria-current='page' href='/') FileConvert
+                        p.sr-only Website Title
+                    .hidden(class='md:flex md:items-center md:justify-center md:gap-5')
+                        a.inline-block.rounded-2lg.px-2.py-1.text-sm.font-medium.text-gray-900.transition-all.duration-200(aria-current='page' class='hover:bg-gray-100 hover:text-gray-900' href='#') How it works
+        div.max-w-screen-lg.mx-auto.mt-10
+            div.px-5.py-5.bg-gray-50.rounded-2xl
+                div(class="custom-file-container" data-upload-id="uploader")
+                p.mt-2.text-gray-500 * เลือกได้หลายรูป
+
+    script(src='/js/main.js')
