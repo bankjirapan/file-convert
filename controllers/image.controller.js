@@ -1,13 +1,20 @@
 import { Convert } from "../core/convertor";
 
-const imageCtrl = {
 
-    postUpload: async (req,res,next)  => {
-
-        await Convert(req.sessionID,'png')
-        return res.send('OK')
-    }
-
+function isValidFileType(filename) {
+  const validExtensions = ["jpg", "jpeg", "png", "webp"];
+  return validExtensions.includes(filename);
 }
+
+const imageCtrl = {
+  postUpload: async (req, res, next) => {
+    const fileType = req.body.filetype;
+    console.log(fileType)
+    if (isValidFileType(fileType)) {
+      await Convert(req.sessionID, fileType);
+    }
+    return res.send("OK");
+  },
+};
 
 export default imageCtrl;
