@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import session from 'express-session'
 import { v4 as uuidv4 } from "uuid";
+import bodyParser from "body-parser";
 
 // Route
 import routes from "../routes/routes";
@@ -21,6 +22,7 @@ const createApp = {
       }))
 
     // View
+    app.use(bodyParser.urlencoded({ extended: true}))
     app.set("view engine", "pug");
     app.set("views", "views");
     app.use(express.static(path.join(__dirname, "../public")));
