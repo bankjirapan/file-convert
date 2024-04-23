@@ -1,20 +1,22 @@
 html 
     title Simple File convert 
-    link(rel="stylesheet", href="https://unpkg.com/file-upload-with-preview/dist/style.css")
     link(rel="stylesheet", href="/css/main.css")
     script(src="https://unpkg.com/file-upload-with-preview/dist/file-upload-with-preview.iife.js")
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js") 
     body 
-        header.mt-10.inset-x-0.top-0.z-30.mx-auto.w-full.max-w-screen-md.border.border-gray-100.py-3.shadow.backdrop-blur-lg(class='bg-white/80 md:top-6 md:rounded-2xl lg:max-w-screen-lg')
+        header.mt-10.inset-x-0.top-0.z-30.mx-auto.max-w-screen-md.border.border-gray-100.py-3.shadow.backdrop-blur-lg(class='bg-white/80 md:top-6 md:rounded-2xl lg:max-w-screen-lg')
             .px-4
                 .flex.items-center.justify-between
                     .flex.shrink-0
-                        a.flex.items-center(aria-current='page' href='/') FileConvert
+                        a.flex.items-center(aria-current='page' href='/') MyConvert
                         p.sr-only Website Title
                     .hidden(class='md:flex md:items-center md:justify-center md:gap-5')
                         a.inline-block.rounded-2lg.px-2.py-1.text-sm.font-medium.text-gray-900.transition-all.duration-200(aria-current='page' class='hover:bg-gray-100 hover:text-gray-900' href='#') How it works
-        div.max-w-screen-lg.mx-auto.mt-10
+        div.max-w-screen-md.mx-auto.mt-10
             div.px-5.py-5.bg-gray-50.rounded-2xl
                 div(class="custom-file-container" data-upload-id="uploader")
-                p.mt-2.text-gray-500 * เลือกได้หลายรูป
+                p.mt-2.text-gray-500 * 
+            div.flex.justify-center
+                button#convert-btn.px-10.py-2.bg-blue-500.rounded-lg.text-white.mt-5 Convert
 
     script(src='/js/main.js')
