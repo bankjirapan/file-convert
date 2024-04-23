@@ -15,7 +15,6 @@ export async function Convert(sessionId, extension) {
   });
   filesList.map(async (files) => {
     const file = await fs.readFileSync(files.path);
-
     const splitExtension = files.fileName.split(".");
     const fileConvetedPath = `${folderPath}/${splitExtension[0]}-done.${extension}`;
     await sharp(file).toFile(fileConvetedPath);

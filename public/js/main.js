@@ -5,16 +5,15 @@ const upload = new FileUploadWithPreview.FileUploadWithPreview('uploader',{
 
 
 document.getElementById('convert-btn').addEventListener('click', (e) => {
-    onUpload()
+    const fileType = document.getElementById('file-type').value;
+    onUpload(fileType)
 })
 
-async function onUpload() {
+async function onUpload(fileType) {
 
     const files = upload.cachedFileArray;
-
     const formData = new FormData();
-
-
+    formData.append('filetype',fileType)
     files.map((file,index) => {
         formData.append('file', file);
     })

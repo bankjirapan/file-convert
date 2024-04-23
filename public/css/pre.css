@@ -90,7 +90,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 4px;
-    height: 250px;
+    height: 300px;
     overflow: auto;
     padding: 4px;
     transition: background .2s ease-in-out;
@@ -104,11 +104,12 @@
     border-radius: 4px;
     box-shadow: 0 4px 10px #33333340;
     float: left;
-    height: 90px;
+    height: 100px;
+    max-height: 200px;
     margin: 1.858736059%;
     position: relative;
     transition: background .2s ease-in-out, opacity .2s ease-in-out;
-    width: 29.615861214%
+    width: 25%
 }
 
 .custom-file-container .image-preview-item.multi-item-clear-animation {
