@@ -13,11 +13,11 @@ const createApp = {
   setup: function () {
 
     app.use(session({ 
-        genid: function(req) {
-          return uuidv4()
-        },
         saveUninitialized: true,
-        resave: false,
+        cookie: {
+          maxAge: 1800000
+        },
+        resave: true,
         secret: 'keyboard cat'
       }))
 
