@@ -1,4 +1,4 @@
-import { Convert } from "../core/convertor";
+import { Convert,ReadFileConvert,GetFileFormDisk } from "../core/convertor";
 
 
 function isValidFileType(filename) {
@@ -9,12 +9,25 @@ function isValidFileType(filename) {
 const imageCtrl = {
   postUpload: async (req, res, next) => {
     const fileType = req.body.filetype;
-    console.log(fileType)
-    if (isValidFileType(fileType)) {
-      await Convert(req.sessionID, fileType);
+    const processId = req.session.process
+    if (isValidFileType(fileType) && processId) {
+      await Convert(processId, fileType);
+      await ReadFileConvert(processId)
     }
     return res.send("OK");
   },
+
+  getDownload: async (req,res,next) => {
+    const fileName = req.params.filename
+    const session  = req.session.process
+    const fileType = req.query.filetype
+    if (!session && !fileName && !fileExtension) {
+      return res.send("invalid")
+    }
+    const file = await GetFileFormDisk(session,fileName,fileType)
+    res.download(file.path)
+  }
+
 };
 
 export default imageCtrl;
