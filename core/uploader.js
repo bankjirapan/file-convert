@@ -4,8 +4,7 @@ import fs from "fs";
 // Store image to server
 const storage = multer.diskStorage({
   destination: async (req, file, cb) => {
-    const folderName = "uploads/" + req.sessionID;
-
+    const folderName = "uploads/" + req.session.process;
     try {
       if (!fs.existsSync(folderName)) {
         await fs.mkdirSync(folderName);
@@ -14,10 +13,10 @@ const storage = multer.diskStorage({
       console.error(err);
     }
 
-    cb(null, "uploads/" + req.sessionID + "/");
+    cb(null, "uploads/" + req.session.process + "/");
   },
   filename: (req, file, cb) => {
-    const fileName = file.originalname.split(":")[0]
+    const fileName = file.originalname.split(":")[0];
     cb(null, fileName);
   },
 });
