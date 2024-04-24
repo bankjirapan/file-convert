@@ -36,8 +36,8 @@ async function Convert(sessionId, extension) {
   filesDir.map(async (files) => {
     const file = await fs.readFileSync(files.path);
     const { fileWithoutExtension } = extractFileExtenstion(files.fileName);
-    const fileConvetedPath = `${files.folderPath}/${fileWithoutExtension}-done.${extension}`;
-    await sharp(file).toFile(fileConvetedPath);
+    const fileConvetedPath = `${files.folderPath}/${fileWithoutExtension}.${extension}`;
+    await sharp(file).toFormat(extension).toFile(fileConvetedPath);
   });
 }
 
@@ -55,7 +55,7 @@ async function GetFileFormDisk(sessionId, originalfileName,fileType) {
   const filesDir = await readLocalFiles(sessionId);
   const fileName = `${originalfileName}`.split(":")[0]
   const requestFileName = extractFileExtenstion(fileName)
-  const fileConvertedName = `${requestFileName.fileWithoutExtension}-done.${fileType}`
+  const fileConvertedName = `${requestFileName.fileWithoutExtension}.${fileType}`
   const fileMatching = filesDir.find((files) => {
     return files.fileName == fileConvertedName;
   });
