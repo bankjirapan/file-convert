@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npx tailwindcss -i ./public/css/pre.css -o ./public/css/main.css --watch\" \"nodemon --exec babel-node main.js\"",
+    "start": "babel-node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

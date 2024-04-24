@@ -1,0 +1,7 @@
+version: '3'
+services:
+   file-convert:
+    build: .
+    ports:
+      -8005:8005
+
