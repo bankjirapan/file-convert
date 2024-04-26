@@ -1,8 +1,9 @@
 import { Convert,ReadFileConvert,GetFileFormDisk } from "../core/convertor";
+import config from "../config/config";
 
 
 function isValidFileType(filename) {
-  const validExtensions = ["jpg", "jpeg", "png", "webp"];
+  const validExtensions = config.SUPPORT_IMAGES_FILE;
   return validExtensions.includes(filename);
 }
 

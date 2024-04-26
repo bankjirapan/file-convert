@@ -6,10 +6,6 @@ function extractFileExtenstion(fileName) {
   const lastDotIndex = fileName.lastIndexOf(".");
   const fileNameWithoutExtension = fileName.substring(0, lastDotIndex);
   const fileExtension = fileName.substring(lastDotIndex + 1);
-
-  console.log("File Name without Extension:", fileNameWithoutExtension);
-  console.log("File Extension:", fileExtension);
-
   return {
     original: fileExtension,
     fileWithoutExtension: fileNameWithoutExtension,
