@@ -8,6 +8,6 @@ const router = express.Router()
 
 router.get('/',indexCtrl.getIndex)
 router.get('/download/:filename',uploadCtrl.getDownload)
-router.post('/upload',uploader.array('file',10),uploadCtrl.postUpload)
+router.put('/upload',uploader.array('file',10),uploadCtrl.postUpload)
 
 export default router;
