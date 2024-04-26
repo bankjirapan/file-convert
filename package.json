@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npx tailwindcss -i ./public/css/pre.css -o ./public/css/main.css --watch\" \"nodemon --exec babel-node main.js\"",
+    "dev": "concurrently \"npx tailwindcss -i ./src/public/css/pre.css -o ./src/public/css/main.css --watch\" \"nodemon --exec babel-node main.js\"",
     "start": "npm run build && node ./dist/main.js",
     "build": "babel ./src --out-dir dist --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
